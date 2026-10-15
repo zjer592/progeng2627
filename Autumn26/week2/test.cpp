@@ -3,18 +3,24 @@
 // this includes the header for text variables
 
 int main(){
-    double n, rem;
-
-    std::cout << "please enter a number" << std::endl;
-    std::cin >> n;
-
-    rem = n % 2;
-    // the operator % is not a percentage (bad choice of symbol, I know)
-    // it computes the remainder of the integer division
-    // between n and 2, which will be 
-    // 0 if the number is even and
-    // 1 if the number is odd
-
-    std::cout << "in the following line 0 means even and 1 means odd" << std::endl;
-    std::cout << rem << std::endl;
+    int max,min;
+    std::string ans;
+    std::cout<<"enter the higher bound and lower bound:"<<std::endl;
+    std::cin>>max>>min;
+    std::cout<<"Im gonna guess a number, answer higher, lower or same"<<std::endl;
+    int mid=(max+min)/2;
+    std::cout<<"my guess is:"<<mid<<", higher or lower than actual number?"<<std::endl;
+    std::cin>>ans;
+    while(ans!="same"){
+        if(ans=="higher"){
+            max=mid-1;
+        }
+        if(ans=="lower"){
+            min=mid+1;
+        }
+        mid=(max+min)/2;
+        std::cout<<"my guess is:"<<mid<<", higher or lower than actual number?"<<std::endl;
+        std::cin>>ans;
+    }
+    std::cout<<"win!"<<std::endl;
 }
